@@ -15,20 +15,20 @@ const personSchema = {
  };
 
  const validate = (obj, schema) => {
-    const objKeys = Object.keys(obj);//? 
-    const schemaKeys = Object.keys(schema);//?
+    const objKeys = Object.keys(obj); 
+    const schemaKeys = Object.keys(schema);
 
-    const objValues = Object.values(obj);//?
-    const schemaValues = Object.values(schema);//?
+    const objValues = Object.values(obj);
+    const schemaValues = Object.values(schema);
 
     if (objKeys.length !== schemaKeys.length) {
         let diff = schemaKeys.filter(x => !objKeys.includes(x)).toString();
-        console.log(`Object mist de volgende velden: ${diff}`)//?
+        console.log(`Object mist de volgende velden: ${diff}`)
         return false;
       }
 
-    for (let objKey of objKeys) {//?
-      const objValueType = Object.prototype.toString.call(obj[objKey]).slice(8,-1).toLowerCase() ;//?
+    for (let objKey of objKeys) {
+      const objValueType = Object.prototype.toString.call(obj[objKey]).slice(8,-1).toLowerCase() ;
       const schemaValueType = schema[objKey];
 
       if (objValueType !== schemaValueType) {
@@ -39,4 +39,4 @@ const personSchema = {
     return true;
  };
 
- validate(personObj, personSchema);//?
+ validate(personObj, personSchema);
