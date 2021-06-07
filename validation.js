@@ -18,9 +18,6 @@ const personSchema = {
     const objKeys = Object.keys(obj); 
     const schemaKeys = Object.keys(schema);
 
-    const objValues = Object.values(obj);
-    const schemaValues = Object.values(schema);
-
     if (objKeys.length !== schemaKeys.length) {
         let diff = schemaKeys.filter(x => !objKeys.includes(x)).toString();
         console.log(`Object mist de volgende velden: ${diff}`)
@@ -28,11 +25,11 @@ const personSchema = {
       }
 
     for (let objKey of objKeys) {
-      const objValueType = Object.prototype.toString.call(obj[objKey]).slice(8,-1).toLowerCase() ;
+      const objValueType = Object.prototype.toString.call(obj[objKey]).slice(8,-1).toLowerCase();
       const schemaValueType = schema[objKey];
 
       if (objValueType !== schemaValueType) {
-        console.log(objValueType + ' is not ' +  schemaValueType);
+        console.log(objValueType + ' is niet van het type ' +  schemaValueType);
         return false;
       }
     }
